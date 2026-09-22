@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thực đơn tiệm trà Mer - Không gian màu hồng ngọt ngào">
+    <title>Mer Tea & Beverage - Menu Đồ Uống</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #fff5f7; color: #4a3e3d; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        nav.main-nav ul li a { color: #ffffff; text-decoration: none; font-weight: 600; padding: 8px 16px; display: inline-block; }
+        .footer-col > p { font-size: 0.95rem; margin-bottom: 8px; color: #ffeef2; }
+        .btn-order:hover { background-color: #ff3366; cursor: pointer; transform: translateY(-2px); }
+        .section-title::before { content: "🧋 "; font-size: 1.2rem; }
+        h1, h2, h3, h4 { color: #881b3a; }
+        h3 + p { font-size: 0.9rem; color: #77585c; }
+        .header-banner { background-color: #ffb6c1; background-image: url('https://picsum.photos/id/1080/1200/400'); background-size: cover; background-position: center center; background-repeat: no-repeat; text-align: center; color: #fff; padding: 50px 20px; }
+        .header-overlay h1 { color: #ffffff; font-size: 2.8rem; margin: 10px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+        
+        /* Style cho Logo SVG Cute */
+        .logo-svg {
+            width: 120px;
+            height: 120px;
+            display: inline-block;
+            margin-bottom: 5px;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
+        .logo-svg:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .main-nav { background-color: #ff69b4; text-align: center; padding: 10px 0; }
+        .main-nav ul { list-style: none; }
+        .main-nav ul li { display: inline-block; }
+        .layout-wrapper { display: flex; gap: 30px; margin-top: 20px; }
+        .main-content { flex: 3; }
+        .sidebar-promo { flex: 1; }
+        .section-title { margin: 25px 0 15px 0; padding: 10px 15px; font-size: 1.4rem; border-left: 5px solid #ff1493; background-color: #ffe4e1; background-origin: padding-box; background-clip: padding-box; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .food-card { background-color: #ffffff; padding: 15px; border-radius: 16px; box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .food-card:hover { box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4); }
+        .food-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .price { font-weight: bold; color: #ff1493; font-size: 1.1rem; }
+        .btn-order { background-color: #ff69b4; color: white; border: none; padding: 6px 14px; border-radius: 20px; transition: 0.2s; }
+        .promo-box { background-color: #fff; padding: 20px; border: 10px solid transparent; border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30'><path d='M0 0h30v30H0z' fill='none'/><circle cx='15' cy='15' r='10' fill='%23ff69b4'/></svg>") 10 stretch; }
+        .fav-list { list-style: none; margin-top: 15px; }
+        .fav-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .fav-list img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+        .main-footer { color: #ffffff; padding-top: 40px; margin-top: 40px; background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 20%, transparent 20%), linear-gradient(to bottom, #d81b60, #880e4f); background-size: 20px 20px, 100% 100%; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 20px 30px 20px; gap: 20px; }
+        .footer-col h4 { color: #ffb6c1; margin-bottom: 15px; border-bottom: 1px solid #ff80ab; padding-bottom: 5px; }
+        .social-links a { color: #ffb6c1; text-decoration: none; }
+        .copyright { text-align: center; padding: 15px 0; background-color: #4a001e; font-size: 0.85rem; color: #ffcdd2; }
+    </style>
+</head>
+<body>
+
+    <header class="header-banner">
+        <div class="header-overlay">
+            
+            <!-- LOGO MER CAFÉ & TEA CUTE (MÀU HỒNG) -->
+            <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+              <defs>
+                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#ffe4e1"/>
+                </linearGradient>
+                <linearGradient id="cupGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#fff0f5"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Vòng tròn nền -->
+              <circle cx="150" cy="150" r="135" fill="url(#bgGradient)" stroke="#ffb6c1" stroke-width="6"/>
+              <circle cx="150" cy="150" r="122" fill="none" stroke="#ff80ab" stroke-width="2" stroke-dasharray="6,6"/>
+
+              <!-- Khói hơi nóng trái tim -->
+              <g fill="#ff4081" opacity="0.8">
+                <path d="M 130 80 Q 125 65 133 55 Q 140 65 130 80 Z" transform="rotate(-15, 130, 65)"/>
+                <path d="M 150 72 Q 145 52 153 40 Q 160 52 150 72 Z"/>
+                <path d="M 170 80 Q 165 65 173 55 Q 180 65 170 80 Z" transform="rotate(15, 170, 65)"/>
+              </g>
+
+              <!-- Quai ly -->
+              <path d="M 195 115 C 225 115 225 165 192 165" fill="none" stroke="#ff69b4" stroke-width="8" stroke-linecap="round"/>
+
+              <!-- Thân Ly Cà Phê -->
+              <rect x="105" y="95" width="90" height="80" rx="15" fill="url(#cupGradient)" stroke="#ff1493" stroke-width="5"/>
+              <rect x="98" y="90" width="104" height="12" rx="6" fill="#ffb6c1" stroke="#ff1493" stroke-width="3"/>
+
+              <!-- Mặt Cute (Mắt mỉm cười + Má hồng) -->
+              <path d="M 125 128 Q 132 135 139 128" fill="none" stroke="#881b3a" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M 161 128 Q 168 135 175 128" fill="none" stroke="#881b3a" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M 145 138 Q 150 144 155 138" fill="none" stroke="#881b3a" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="122" cy="136" rx="6" ry="4" fill="#ff4081" opacity="0.6"/>
+              <ellipse cx="178" cy="136" rx="6" ry="4" fill="#ff4081" opacity="0.6"/>
+
+              <!-- Hạt cà phê trái tim -->
+              <path d="M 150 190 C 150 190 140 180 135 186 C 130 192 136 200 150 208 C 164 200 170 192 165 186 C 160 180 150 190 150 190 Z" fill="#d81b60"/>
+
+              <!-- Chữ MER -->
+              <text x="150" y="242" font-family="'Segoe UI', sans-serif" font-size="34" font-weight="900" fill="#881b3a" text-anchor="middle" letter-spacing="2">MER</text>
+              <text x="150" y="262" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#ff1493" text-anchor="middle" letter-spacing="3">CAFÉ &amp; TEA</text>
+            </svg>
+
+            <p class="welcome-text">Welcome to</p>
+            <h1>MER </h1>
+            <p class="slogan">"Chút ngọt ngào cho ngày thêm tươi mát"</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#tra-sua">Trà Sữa Mer</a></li>
+            <li><a href="#tra-trai-cay">Trà Trái Cây</a></li>
+            <li><a href="#da-say">Đá Say & Smoothies</a></li>
+            <li><a href="#soda">Soda & Cold Brew</a></li>
+            <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container layout-wrapper">
+        <main class="main-content">
+            
+            <!-- SECTION 1: TRÀ SỮA -->
+            <section id="tra-sua">
+                <h2 class="section-title">Trà Sữa Thượng Hạng Mer</h2>
+                <div class="menu-grid">
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-MYu0JgMlSuBgFQNAkjzOkMLomIxVOUhDSGMxaRoKw&s=10" alt="Trà Sữa Hồng Trà">
+                        <h3>Trà Sữa Hồng Trà Pearl</h3>
+                        <p>Đậm vị hồng trà cao cấp kèm trân châu đường đen dẻo thơm béo ngậy.</p>
+                        <div class="card-footer">
+                            <span class="price">35.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPKOwZZNJ6mloNsjU6HDJyiL8iMjZ5qfFeFnpspahYsw&s=10" alt="Trà Sữa Dâu Pinky">
+                        <h3>Trà Sữa Dâu Pinky Mer</h3>
+                        <p>Vị trà thơm béo kết hợp sốt dâu tây tươi hồng dịu ngọt ngọt thanh.</p>
+                        <div class="card-footer">
+                            <span class="price">38.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5C3pDH_2te04bmhZFnQ7AupUiMKOmXT8h4zTYRA7Ow&s=10" alt="Trà Sữa Matcha Oolong">
+                        <h3>Trà Sữa Matcha Oolong</h3>
+                        <p>Matcha Nhật Bản thượng hạng đậm đà quyện vị sữa tươi thơm mịn.</p>
+                        <div class="card-footer">
+                            <span class="price">42.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECTION 2: TRÀ TRÁI CÂY -->
+            <section id="tra-trai-cay">
+                <h2 class="section-title">Trà Trái Cây Tươi Thanh Mát</h2>
+                <div class="menu-grid">
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWKwp4i7GZsKgQrsebah7p0-HDkzJIYsCvsrzZ4dE0wQ&s=10" alt="Trà Dâu Táo Hồng">
+                        <h3>Trà Dâu Táo Hồng</h3>
+                        <p>Dâu tây cùng táo đỏ tươi mọng kết hợp trà ô long thanh nhiệt giải khát.</p>
+                        <div class="card-footer">
+                            <span class="price">39.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHcvA1t9etrtyEoqNAD0skXDSHTAv4MK99VJ4cT2-X_Q&s=10" alt="Trà Đào Hồng Hạc">
+                        <h3>Trà Đào Hồng Hạc</h3>
+                        <p>Hương đào thơm mát kết hợp cùng những miếng đào giòn sần sật tươi ngon.</p>
+                        <div class="card-footer">
+                            <span class="price">42.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz4Lg0rmttFPEBANlmF8gvMqOuQGsqIIpYWoFMj2PCyA&s=10" alt="Trà Vải Hoa Lài">
+                        <h3>Trà Vải Hoa Lài Pink</h3>
+                        <p>Hương hoa lài thơm ngát kết hợp cùng vị ngọt lịm từ vải thiều tươi.</p>
+                        <div class="card-footer">
+                            <span class="price">40.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECTION 3: ĐÁ SAY & SMOOTHIES -->
+            <section id="da-say">
+                <h2 class="section-title">Đá Say & Sinh Tố Creamy</h2>
+                <div class="menu-grid">
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-tSwuDbw8OVaYSYheh9M2qhFtBIzLWd5V30-xt-bWRQ&s=10" alt="Dâu Tây Ice Blended">
+                        <h3>Dâu Tây Ice Blended</h3>
+                        <p>Dâu tây đá say phủ lớp kem whipping cream béo ngậy ngọt ngào.</p>
+                        <div class="card-footer">
+                            <span class="price">45.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxJMFPGq0QjjsARGMpswcFV0X1Y6p0--3s44NG-wqp3Q&s=10" alt="Smoothie Việt Quất">
+                        <h3>Smoothie Việt Quất Mer</h3>
+                        <p>Việt quất nhập khẩu xay mịn cùng sữa chua không đường thanh mát.</p>
+                        <div class="card-footer">
+                            <span class="price">48.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9nDrYtjZ9hip7EfZgkZU2MjDwnyotD6iM4TmOIgHkew&s=10" alt="Choco Pink Frappe">
+                        <h3>Choco Pink Frappe</h3>
+                        <p>Sô-cô-la đá say đậm vị hòa quyện sốt mâm xôi ngọt đắng ngất ngây.</p>
+                        <div class="card-footer">
+                            <span class="price">46.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECTION 4: SODA & COLD BREW -->
+            <section id="soda">
+                <h2 class="section-title">Soda & Trà Lạnh Cold Brew</h2>
+                <div class="menu-grid">
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtd71w57J7msu7xUo8iZe6ZcGay6PsbBiSgr8Geyt2A&s=10" alt="Soda Sakura Flamingo">
+                        <h3>Soda Sakura Flamingo</h3>
+                        <p>Soda bọt sủi sảng khoái với vị hoa anh đào và chút chanh vàng thanh nhẹ.</p>
+                        <div class="card-footer">
+                            <span class="price">36.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ44iBCuss14U_WnAGHeOiUjYmD2cUn2h-KHXnfOXYtQw&s=10" alt="Cold Brew Cam Dâu">
+                        <h3>Cold Brew Cam Dâu</h3>
+                        <p>Cà phê ủ lạnh thanh thoát hòa quyện cùng nước cam tươi và dâu mọng nước.</p>
+                        <div class="card-footer">
+                            <span class="price">45.000đ</span>
+                            <button type="button" class="btn-order">Đặt món</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="sidebar-promo">
+            <div class="promo-box">
+                <p class="promo-tag">BEST SELLER</p>
+                <h3>Nước Được Yêu Thích</h3>
+                <ul class="fav-list">
+                    <li>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPKOwZZNJ6mloNsjU6HDJyiL8iMjZ5qfFeFnpspahYsw&s=10" alt="Trà Dâu Pinky">
+                        <div>
+                            <strong>Trà Sữa Dâu Pinky</strong>
+                            <small>Sản phẩm bán chạy nhất</small>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-tSwuDbw8OVaYSYheh9M2qhFtBIzLWd5V30-xt-bWRQ&s=10" alt="Dâu Ice Blended">
+                        <div>
+                            <strong>Dâu Ice Blended</strong>
+                            <small>Được yêu thích nhất</small>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHcvA1t9etrtyEoqNAD0skXDSHTAv4MK99VJ4cT2-X_Q&s=10" alt="Trà Đào Hồng Hạc">
+                        <div>
+                            <strong>Trà Đào Hồng Hạc</strong>
+                            <small>Món giải nhiệt hot</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer id="lien-he" class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>GIỜ MỜ CỬA</h4>
+                <p>Thứ 2 - Thứ 6: 08:00 - 22:00</p>
+                <p>Thứ 7 - Chủ Nhật: 08:00 - 22:30</p>
+            </div>
+            <div class="footer-col">
+                <h4>THÔNG TIN LIÊN HỆ</h4>
+                <p>Địa chỉ: 78/14, đường 265, Man Thiện, Thủ Đức, TP.HCM</p>
+                <p>Hotline: 0111 222 333</p>
+                <p>Email: hello@merbeverage.vn</p>
+            </div>
+            <div class="footer-col">
+                <h4>KẾT NỐI VỚI MER</h4>
+                <p>Theo dõi Mer trên mạng xã hội để nhận khuyến mãi ngọt ngào!</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">TikTok</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2026 <strong>Mer Tea & Beverage</strong>. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
